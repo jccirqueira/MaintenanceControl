@@ -1,0 +1,40 @@
+{
+  "name": "maintenance-control",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "homepage": "https://GITHUB_USER.github.io/MaintenanceControl",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist",
+    "lint": "eslint .",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@hello-pangea/dnd": "^16.6.0",
+    "@supabase/supabase-js": "^2.93.2",
+    "clsx": "^2.1.0",
+    "exceljs": "^4.4.0",
+    "lucide-react": "^0.363.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.22.3",
+    "recharts": "^2.12.3",
+    "tailwind-merge": "^2.2.2",
+    "xlsx": "^0.18.5"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.5",
+    "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react": "^4.3.1",
+    "eslint": "^9.9.0",
+    "eslint-plugin-react": "^7.35.0",
+    "eslint-plugin-react-hooks": "^5.1.0-rc.0",
+    "eslint-plugin-react-refresh": "^0.4.9",
+    "gh-pages": "^6.3.0",
+    "globals": "^15.9.0",
+    "vite": "^5.4.1"
+  }
+}
