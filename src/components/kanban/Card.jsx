@@ -12,26 +12,21 @@ export default function Card({ activity, index, onClick }) {
                     ref={provided.innerRef}
                     {...provided.draggableProps}
                     {...provided.dragHandleProps}
+                    className="kanban-card"
                     style={{
                         ...provided.draggableProps.style,
-                        backgroundColor: 'white',
-                        padding: '1rem',
-                        marginBottom: '0.75rem',
-                        borderRadius: '6px',
-                        boxShadow: '0 1px 2px rgba(0,0,0,0.1)',
                         borderLeft: isDelayed ? '4px solid var(--color-danger)' : '4px solid var(--color-primary)',
-                        cursor: 'grab'
                     }}
                     onClick={() => onClick(activity)}
                 >
-                    <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.5rem' }}>
-                        <span style={{ fontSize: '0.8rem', color: 'var(--color-text-secondary)', fontWeight: 'bold' }}>{activity.code}</span>
+                    <div className="kanban-card-header">
+                        <span className="kanban-card-code">{activity.code}</span>
                         {isDelayed && <AlertTriangle size={16} color="var(--color-danger)" />}
                     </div>
 
-                    <h4 style={{ marginBottom: '0.5rem', fontSize: '1rem' }}>{activity.description}</h4>
+                    <h4 className="kanban-card-title">{activity.description}</h4>
 
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.8rem', color: 'var(--color-text-secondary)', marginBottom: '0.5rem' }}>
+                    <div className="kanban-card-meta">
                         <Clock size={14} />
                         <span>
                             {activity.startDate ? new Date(activity.startDate + 'T12:00:00').toLocaleDateString('pt-BR') : '?'} - {activity.endDate ? new Date(activity.endDate + 'T12:00:00').toLocaleDateString('pt-BR') : '?'}
@@ -55,11 +50,11 @@ export default function Card({ activity, index, onClick }) {
                         </div>
                     )}
 
-                    <div style={{ marginTop: '0.25rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                        <div style={{ width: '24px', height: '24px', borderRadius: '50%', backgroundColor: '#e2e8f0', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                    <div className="kanban-card-footer">
+                        <div className="kanban-card-avatar">
                             <User size={14} />
                         </div>
-                        <span style={{ fontSize: '0.8rem' }}>{activity.responsible}</span>
+                        <span className="kanban-card-responsible">{activity.responsible}</span>
                     </div>
                 </div>
             )}

@@ -3,25 +3,10 @@ import Card from './Card';
 
 export default function Column({ column, activities, onCardClick }) {
     return (
-        <div style={{
-            backgroundColor: '#f1f5f9',
-            borderRadius: '8px',
-            width: '300px',
-            minWidth: '300px',
-            display: 'flex',
-            flexDirection: 'column',
-            height: '100%',
-            maxHeight: '100%'
-        }}>
-            <div style={{ padding: '1rem', borderBottom: '1px solid #e2e8f0', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                <h3 style={{ fontSize: '1rem', fontWeight: 'bold' }}>{column.title}</h3>
-                <span style={{
-                    backgroundColor: '#e2e8f0',
-                    padding: '2px 8px',
-                    borderRadius: '12px',
-                    fontSize: '0.8rem',
-                    fontWeight: 'bold'
-                }}>
+        <div className="kanban-column">
+            <div className="kanban-column-header">
+                <h3 className="kanban-column-title">{column.title}</h3>
+                <span className="kanban-column-count">
                     {activities.length} / {column.totalCount || activities.length}
                 </span>
             </div>
@@ -31,11 +16,7 @@ export default function Column({ column, activities, onCardClick }) {
                     <div
                         ref={provided.innerRef}
                         {...provided.droppableProps}
-                        style={{
-                            padding: '1rem',
-                            flex: 1,
-                            overflowY: 'auto'
-                        }}
+                        className="kanban-column-content"
                     >
                         {activities.map((activity, index) => (
                             <Card key={activity.id} activity={activity} index={index} onClick={onCardClick} />
